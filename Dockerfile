@@ -13,5 +13,8 @@ RUN apt-get update && \
     apt-get install -y nodejs docker-ce yarn ansible build-essential && \
     rm -rf /var/lib/apt/lists/*
 
+# Preinstall additional Node packages
+RUN npm install -g node-sass@4.14.1 --unsafe-perm
+
 RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG=en_US.UTF-8
